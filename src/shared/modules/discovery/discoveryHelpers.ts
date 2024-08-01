@@ -125,10 +125,11 @@ export async function getAndMergeDiscoveryData({
 
   const forceUrlData = forceUrl ? parseURLWithDefaultProtocol(forceUrl) : null
   if (forceUrlData) {
-    const { username, protocol, host } = forceUrlData
+    const { username, password, protocol, host } = forceUrlData
 
     const discovered = {
       username,
+      password,
       requestedUseDb: action.requestedUseDb,
       host: `${protocol ? `${protocol}//` : ''}${host}`,
       supportsMultiDb: !!action.requestedUseDb,
