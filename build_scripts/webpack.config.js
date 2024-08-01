@@ -32,7 +32,7 @@ module.exports = {
   output: {
     filename: 'app-[hash].js',
     chunkFilename: '[name]-[hash].bundle.js',
-    publicPath: '',
+    publicPath: helpers.publicPath,
     path: helpers.buildPath,
     globalObject: 'this'
   },

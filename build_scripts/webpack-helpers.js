@@ -22,6 +22,7 @@ const path = require('path')
 const nodeEnv = process.env.NODE_ENV || 'development'
 exports.nodeEnv = nodeEnv
 exports.isProduction = nodeEnv === 'production'
+exports.publicPath = process.env.PUBLIC_PATH || ''
 
 exports.buildPath = path.join(__dirname, '../dist')
 exports.assetsPath = path.join(__dirname, '../dist/assets')
