@@ -53,7 +53,7 @@ export const NOT_SUPPORTED_URL_PARAM_COMMAND =
 const validCommandTypes: { [key: string]: (args: string[]) => string } = {
   play: args => `:play ${args.join(' ')}`,
   guide: args => `:guide ${args.join(' ')}`,
-  server: args => `:guide ${args.join(' ')}`,
+  server: args => `:server ${args.join(' ')}`,
   edit: args => args.join('\n'),
   param: args => `:param ${args.join(' ')}`,
   params: args => `:params ${args.join(' ')}`
