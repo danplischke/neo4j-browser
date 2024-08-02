@@ -146,10 +146,22 @@ export const discoveryOnStartupEpic = (some$: any, store: any) => {
       if (!action.url) return action
       const { searchParams } = new URL(action.url)
 
-      const passedUrl =
-        searchParams.get('dbms') || searchParams.get('connectURL')
+      let passedUrl = undefined
+      let passedDb = undefined
 
-      const passedDb = searchParams.get('db')
+      if (parent) {
+        if (parent.hasOwnProperty('connectURL')) {
+          //@ts-ignore
+          passedUrl = parent.connectURL
+        }
+        if (parent.hasOwnProperty('db')) {
+          //@ts-ignore
+          passedDb = parent.db
+        }
+      } else {
+        passedUrl = searchParams.get('dbms') || searchParams.get('connectURL')
+        passedDb = searchParams.get('db')
+      }
 
       if (passedUrl) {
         action.forceUrl = decodeURIComponent(passedUrl)
